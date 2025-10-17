@@ -1,0 +1,52 @@
+// Hey there!
+// This is CODE, lets you control your character with code.
+// If you don't know how to code, don't worry, It's easy.
+// Just set attack_mode to true and ENGAGE!
+
+var attack_mode=false
+
+// Variables Rearding Auto Attack
+var vAttackMode=false;
+var vMinXP=100;
+var vMaxAtt=120;
+
+// Items
+var vHPPotionName="hpot0";
+var vMPPotionName="mpot0";
+
+// Support Info
+var vSupportName="RoseMoth";
+var vSupportDistance;
+
+// Load External Code Block
+load_code(1);
+
+setInterval(function(){
+
+	
+	//set potion values for future function use
+	var vHPPotionValue=fFindPotionValue(vHPPotionName);
+	var vMPPotionValue=fFindPotionValue(vMPPotionName);
+	
+	// Functions
+	
+	// Potions / Regen
+	fUseHPPotion(vHPPotionValue,vSupportDistance);
+	fUseMPPotion(vMPPotionValue);
+	fUseHPRegen(vHPPotionValue,vSupportDistance);
+	fUseMPRegen(vMPPotionValue);
+	
+	// Attack
+	fAttack(vAttackMode,vMinXP,vMaxAtt);
+	//fTauntSupportTarget(vSupportName);
+	
+	// Support Info
+	vSupportDistance=fSupportDistance(vSupportName);
+
+
+
+
+},1000/4); // Loops every 1/4 seconds.
+
+// Learn Javascript: https://www.codecademy.com/learn/introduction-to-javascript
+// Write your own CODE: https://github.com/kaansoral/adventureland

@@ -1,0 +1,82 @@
+// Hey there!
+// This is CODE, lets you control your character with code.
+// If you don't know how to code, don't worry, It's easy.
+// Just set attack_mode to true and ENGAGE!
+
+
+
+// Variables Rearding Auto Attack
+const vMinXP=100;
+const vMaxAtt=960;
+
+// Items
+const vHPPotionName="hpot1";
+const vMPPotionName="mpot0";
+let vHPPotionValue
+let vMPPotionValue
+
+// Support Info
+const vSupportName="RoseMoth";
+let vSupportDistance;
+
+// Skill Variables
+vTaunt="taunt";
+vCharge="charge";
+// Load External Code Block
+load_code(1);
+
+
+
+// Toggle Hell
+
+//MapTest("E",vEXAMPLE)
+//MapTest("R",vAttackMode)
+// ----------------------
+// Example usage
+// ----------------------
+//MapToggle("E", "vEXAMPLE");         // Press E to toggle vEXAMPLE
+MapToggle("R", "vAttackMode");
+// Press R to toggle vAttackModeget_target_of(entity)
+
+fUseHPPotion();
+fUseMPPotion();
+fUseHPRegen();
+fUseMPRegen();
+
+fAttackLoop(vAttackMode,vMinXP,vMaxAtt);
+fLoot();
+// Start Character Loop
+setInterval(function(){
+	
+	//set potion values for future function use
+	vHPPotionValue=fFindPotionValue(vHPPotionName);
+	vMPPotionValue=fFindPotionValue(vMPPotionName);
+	
+	// Functions
+	
+	// Support Info
+	vSupportDistance=fSupportDistance(vSupportName);	
+	
+	
+	// Potions / Regen
+	
+	
+	// Attack
+	fNextTarget();
+	fGoToTarget();
+	fSkillOnAllyTargeted(vSupportName,vCharge);
+	fSkillOnAllyTargeted(vSupportName,vTaunt);
+	fSkillOnAllyTargeted("KojiKuru",vCharge);
+	fSkillOnAllyTargeted("KojiKuru",vTaunt);
+	
+	
+
+	
+	
+
+
+
+},1000/4); // Loops every 1/4 seconds.
+
+// Learn Javascript: https://www.codecademy.com/learn/introduction-to-javascript
+// Write your own CODE: https://github.com/kaansoral/adventureland
