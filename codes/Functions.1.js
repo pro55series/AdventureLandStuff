@@ -17,7 +17,7 @@ const TenMinutesInMs = 10 * 60 * 1000
 var MissingHP=character.max_hp-character.hp
 var MissingMP=character.max_mp-character.mp
 
-
+let vMoving=false;
 
 // Regen Functions
 
@@ -133,3 +133,31 @@ function fFollow(vName){
 	}
 }
 
+async function fGoToMonster(){
+	try{
+		if(!vFollow){
+			vNearEnemy=fEntityNearby(vType);
+			if(vNearEnemy===true){return;}
+			else {
+				vMoving=true;
+				await smart_move(vType);
+				vMoving=false;
+			}
+		}
+	} catch(e) {
+		console.error(e);
+	} finally {
+		setTimeout(fGoToMonster, 10000);
+	}
+}
+
+function fEntityNearby(){
+	for (let id in parent.entities){
+		let e = parent.entities[id];
+		if (e.mtype ===vType){
+			return(true);
+			break;
+		} 
+	}
+	return(false);
+}

@@ -8,7 +8,7 @@
 // Variables Rearding Auto Attack
 const vMinXP=0;
 const vMaxAtt=99999;
-const vType="";
+let vType="iceroamer";
 
 // Items
 const vHPPotionName="hpot1";
@@ -49,9 +49,13 @@ fUseMPRegen();
 
 aAttackLoop();
 aLoot();
+fGoToMonster(vType);
 
 // Start Character Loop
 setInterval(function(){
+	
+	
+
 	
 	//set potion values for future function use
 	vHPPotionValue=fFindPotionValue(vHPPotionName);
@@ -67,9 +71,9 @@ setInterval(function(){
 	// Potions / Regen
 	
 	aSelectTarget("RoseMoth");
-	//aGoToTarget();
+	aGoToTarget();
 	if((get_target_of(vCurrentTarget)?.name=="Kojikisune")==false){
-		aUseSkill(vTaunt,true);
+		//aUseSkill(vTaunt,true);
 		aUseSkill(vCharge,true);
 	}
 	

@@ -79,6 +79,13 @@ async function exchangeAll(item) {
   }
 }
 
+async function mMoveTo(vPlayerName){
+	send_party_request(vPlayerName);
+	while (character.party==null) {await sleep(250)}
+	log("test")
+	vPlayer=parent.party[vPlayerName];
+	await smart_move(vPlayer);
+}
 
 
 // COPY TO THE character
@@ -149,10 +156,4 @@ async function exchangeAll(item) {
 //	}
 //}
 //
-//async function mMoveTo(vPlayerName){
-//	send_party_request(vPlayerName);
-//	while (character.party==null) {await sleep(250)}
-//	log("test")
-//	vPlayer=parent.party[vPlayerName];
-//	await smart_move(vPlayer);
-//}
+

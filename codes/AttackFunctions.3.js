@@ -108,7 +108,7 @@ function aSelectTarget(vPlayerName){
 async function aAttackLoop() {
     try {
 
-		if(!(vHelpMode||vAttackMode) || character.rip || is_moving(character)||!can_attack(vCurrentTarget)||!(vCurrentTarget.type==="monster")){
+		if(!(vHelpMode||vAttackMode) ||vMoving|| character.rip || is_moving(character)||!can_attack(vCurrentTarget)||!(vCurrentTarget.type==="monster")){
 		}
 		else if (can_attack(vCurrentTarget)) {
             set_message("Attacking");
@@ -126,7 +126,7 @@ async function aAttackLoop() {
 async function aGoToTarget() {
 	
 	try {
-		if(!(vHelpMode||vAttackMode) || character.rip || is_moving(character)) {return};
+		if(!(vHelpMode||vAttackMode) ||vMoving|| character.rip || is_moving(character)) {return};
 		if(!is_in_range(vCurrentTarget))
 		{
 			set_message("Moving to Target");
@@ -160,7 +160,7 @@ function aGetNameFromObject(object, value) {
 function aUseSkill(vSkill,vProtPrio) {
 	const vSkillName=aGetNameFromObject(G.skills,vSkill);
 	if(is_on_cooldown(vSkillName)){return;}
-	if(!(vAttackMode||vHelpMode)){return;}
+	if(!(vAttackMode||vHelpMode)||vMoving){return;}
 	set_message(vSkill.name);
 	if(vProtPrio===true&&vProtectTarget!==undefined){
 		log(vSkill.name+" on ProtectTarget");

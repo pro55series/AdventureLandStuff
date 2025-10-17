@@ -7,8 +7,8 @@
 
 // Variables Rearding Auto Attack
 const vMinXP=0;
-const vMaxAtt=40;
-const vType="";
+const vMaxAtt=99999;
+let vType="iceroamer";
 
 //Potion Variable Setup
 let vMPPotionValue
@@ -16,7 +16,7 @@ let vHPPotionValue
 
 // Items
 const vHPPotionName="hpot1";
-const vMPPotionName="mpot0";
+const vMPPotionName="mpot1";
 
 // Support Info
 const vSupportName="";
@@ -55,6 +55,7 @@ fUseMPPotion();
 // Attack
 aAttackLoop();
 aLoot();
+fGoToMonster(vType);
 
 // Start Character Loop
 setInterval(function(){
@@ -74,8 +75,8 @@ setInterval(function(){
 	fFollow("Kojikisune");
 	
 	// Attack
-	aSelectTarget("RoseMoth");
-	//aGoToTarget();
+	aSelectTarget("Kojikisune");
+	aGoToTarget();
 
 	//fSkillOnAllyTargeted(vSupportName,vTaunt);
 	aUseAllyBuff(vInvis,"KojiKuru");
