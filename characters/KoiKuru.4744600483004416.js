@@ -8,7 +8,7 @@
 // Variables Rearding Auto Attack
 const vMinXP=0;
 const vMaxAtt=99999;
-let vType="iceroamer";
+let vType="boar";
 
 //Potion Variable Setup
 let vMPPotionValue

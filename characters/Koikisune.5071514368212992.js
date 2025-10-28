@@ -7,8 +7,8 @@
 
 // Variables Rearding Auto Attack
 const vMinXP=0;
-const vMaxAtt=99999;
-let vType="iceroamer";
+const vMaxAtt=9999;
+let vType="boar";
 
 // Items
 const vHPPotionName="hpot1";
@@ -71,9 +71,11 @@ setInterval(function(){
 	// Potions / Regen
 	
 	aSelectTarget("RoseMoth");
+	aSelectTarget("KojiKuru");
+	aSelectTarget("RegalMoth");
 	aGoToTarget();
 	if((get_target_of(vCurrentTarget)?.name=="Kojikisune")==false){
-		//aUseSkill(vTaunt,true);
+		aUseSkill(vTaunt,true);
 		aUseSkill(vCharge,true);
 	}
 	
